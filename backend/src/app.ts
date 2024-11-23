@@ -1,16 +1,17 @@
-import express from "express";
+import express, { NextFunction } from "express";
 import { Request, Response } from "express";
+const routes = require("./routes");
 
 const app = express();
-
-app.use(express.json());
-
-app.get("/", (req: Request, res: Response) => {
-  res.status(200).send({ mensagem: "boas-vindas à API" });
-});
+routes(app);
 
 const PORT = 8080;
 
 app.listen(PORT, () => {
-  console.log("teste rodando");
+  console.log(`Servidor rodando na porta ${PORT}`);
 });
+app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
+  res.status(500).json({ message: err.message });
+});
+
+module.exports = app;
