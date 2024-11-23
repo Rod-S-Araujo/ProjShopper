@@ -28,9 +28,17 @@ class CustomerService {
   }
 
   async create(customer: ICustomer) {
-    const createCostumer = await this.model.create({ ...customer });
+    const existingCustomer = await this.model.findOne({
+      where: { email: customer.email },
+    });
 
-    return resp(201, createCostumer);
+    if (existingCustomer) {
+      return resp(409, "Email registred");
+    }
+
+    const createCustomer = await this.model.create({ ...customer });
+
+    return resp(201, createCustomer);
   }
 }
 
