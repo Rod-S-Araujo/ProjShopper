@@ -1,4 +1,3 @@
-import { Request, Response } from "express";
 import CustomerController from "../controllers/CustomerController";
 
 const { Router } = require("express");
