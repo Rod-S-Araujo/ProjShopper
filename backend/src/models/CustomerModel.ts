@@ -4,7 +4,7 @@ import sequelize from "sequelize";
 import RidesModel from "./RidesModel";
 
 class CustomerModel extends Model {
-  declare id: number;
+  declare id: string;
   declare name: string;
   declare email: string;
 
@@ -19,7 +19,7 @@ class CustomerModel extends Model {
 CustomerModel.init(
   {
     id: {
-      type: sequelize.NUMBER,
+      type: sequelize.STRING,
       primaryKey: true,
     },
     name: {

@@ -1,5 +1,7 @@
 import { ModelStatic } from "sequelize";
 import CustomerModel from "../models/CustomerModel";
+import { v4 as uuidv4 } from "uuid";
+
 const resp = require("../utils/resp");
 
 import { sign } from "../jwt/jwt";
@@ -36,7 +38,10 @@ class CustomerService {
       return resp(409, "Email registred");
     }
 
-    const createCustomer = await this.model.create({ ...customer });
+    const createCustomer = await this.model.create({
+      ...customer,
+      id: uuidv4(),
+    });
 
     return resp(201, createCustomer);
   }

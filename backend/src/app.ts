@@ -1,3 +1,5 @@
+require("dotenv").config();
+
 import express, { NextFunction } from "express";
 import { Request, Response } from "express";
 const routes = require("./routes");

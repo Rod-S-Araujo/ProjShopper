@@ -14,7 +14,7 @@ class DriverModel extends Model {
   declare min_distance: number;
 
   static associate() {
-    DriverModel.hasMany(RidesModel, { foreignKey: "customer_id", as: "rides" });
+    DriverModel.hasMany(RidesModel, { foreignKey: "driver_id", as: "drivers" });
   }
 }
 

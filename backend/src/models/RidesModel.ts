@@ -1,30 +1,32 @@
-import { Model } from "sequelize";
+import { Model, InferAttributes, InferCreationAttributes } from "sequelize";
 import db from ".";
 import sequelize from "sequelize";
 import CustomerModel from "./CustomerModel";
 import DriverModel from "./DriverModel";
 
-class RidesModel extends Model {
-  declare id: number;
+class RidesModel extends Model<
+  InferAttributes<RidesModel>,
+  InferCreationAttributes<RidesModel>
+> {
+  declare id?: number;
   declare origin: string;
   declare destination: string;
   declare distance: number;
   declare duration: string;
   declare value: number;
-  declare date: Date;
-  declare status: number;
-  declare min_distance: number;
-  declare customer_id: number;
+  declare date?: Date;
+  declare status?: string;
+  declare customer_id: string;
   declare driver_id: number;
 
   static associate() {
     RidesModel.belongsTo(CustomerModel, {
       foreignKey: "customer_id",
-      as: "customer",
+      as: "customers",
     });
     RidesModel.belongsTo(DriverModel, {
       foreignKey: "driver_id",
-      as: "driver",
+      as: "drivers",
     });
   }
 }
@@ -56,7 +58,7 @@ RidesModel.init(
       type: sequelize.NUMBER,
     },
     date: {
-      allowNull: false,
+      allowNull: true,
       type: sequelize.DATE,
     },
     status: {
@@ -64,11 +66,11 @@ RidesModel.init(
       type: sequelize.STRING,
     },
     customer_id: {
-      allowNull: true,
-      type: sequelize.NUMBER,
+      allowNull: false,
+      type: sequelize.STRING,
     },
     driver_id: {
-      allowNull: true,
+      allowNull: false,
       type: sequelize.NUMBER,
     },
   },

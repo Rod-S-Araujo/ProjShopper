@@ -3,7 +3,7 @@ import jwt, { SignOptions } from "jsonwebtoken";
 
 const secret = "NF172721EHUOP138";
 
-const sign = (payload: { id: number; email: string }) => {
+const sign = (payload: { id: string; email: string }) => {
   const jwtConfig: SignOptions = {
     algorithm: "HS256",
     expiresIn: "2h",

@@ -4,9 +4,13 @@ services:
       context: ./backend
     ports:
       - "8080:8080"
+    env_file:
+      - .env
 
   frontend:
     build:
       context: ./frontend
     ports:
       - "80:80"
+    env_file:
+      - .env
