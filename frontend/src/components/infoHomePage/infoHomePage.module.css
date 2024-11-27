@@ -1,0 +1,11 @@
+.containerInfo {
+  display: flex;
+  flex-direction: column;
+  h2,
+  p {
+    color: white;
+  }
+  span {
+    color: var(--color-header);
+  }
+}

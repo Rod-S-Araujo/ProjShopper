@@ -1,0 +1,33 @@
+.footer {
+  display: flex;
+  justify-content: space-between;
+  background-color: var(--color-header);
+  color: white;
+  padding: 40px;
+  width: 100vw;
+}
+.socialsIcos {
+  img {
+    width: 30px;
+    height: auto;
+  }
+}
+.containeFooterInfos {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+  img {
+    width: 100px;
+    height: auto;
+  }
+}
+.containerSocials {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.containerIcons {
+  display: flex;
+  gap: 10px;
+}

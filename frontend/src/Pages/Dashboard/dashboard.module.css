@@ -1,0 +1,12 @@
+.containerDashboard {
+  min-height: 60vh;
+  margin: 10vh 0;
+  background-color: var(--color-dark-blue-shopper);
+  background-image: url("/images/background.svg");
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+  gap: 30px;
+}

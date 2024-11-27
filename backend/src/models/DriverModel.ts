@@ -13,8 +13,8 @@ class DriverModel extends Model {
   declare rate_per_km: number;
   declare min_distance: number;
 
-  static associate() {
-    DriverModel.hasMany(RidesModel, { foreignKey: "driver_id", as: "drivers" });
+  static associate(models: { RidesModel: typeof RidesModel }) {
+    this.hasMany(models.RidesModel, { foreignKey: "driver_id", as: "rides" });
   }
 }
 

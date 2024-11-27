@@ -1,0 +1,24 @@
+.containerDashboard {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.buttonDashBoard {
+  all: unset;
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.5);
+  padding: 5% 10%;
+  width: 30vw;
+  height: auto;
+  color: var(--color-black-100);
+  cursor: pointer;
+  border-radius: 10px;
+  img {
+    width: 100%;
+    height: auto;
+    margin-top: 20px;
+  }
+}
+.buttonDashBoard:hover {
+  background-color: white;
+}

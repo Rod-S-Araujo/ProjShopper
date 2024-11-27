@@ -1,0 +1,16 @@
+.containerLogin {
+  background-color: rgba(30, 32, 68, 0.5);
+  color: white;
+  border-radius: 8px;
+
+  display: flex;
+  flex-direction: column;
+
+  padding: 50px 15px 30px 15px;
+}
+
+.containerAcess {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}

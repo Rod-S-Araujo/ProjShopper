@@ -1,0 +1,32 @@
+.containerEstimate {
+  display: flex;
+  min-height: 60vh;
+  width: 100vw;
+  margin: 10vh 0;
+  background-color: var(--color-dark-blue-shopper);
+  background-image: url("/images/background.svg");
+  display: flex;
+  align-items: center;
+  color: white;
+  justify-content: center;
+  gap: 15px;
+}
+.formEstimate {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 40%;
+}
+.mapEstimate {
+  width: 40%;
+}
+.inputPlace {
+  all: unset;
+  width: 95%;
+  border: 3px solid;
+  border-radius: 15px;
+  border-color: var(--color-green-shopper);
+  background-color: white;
+  padding: 5px 10px;
+  color: black;
+}

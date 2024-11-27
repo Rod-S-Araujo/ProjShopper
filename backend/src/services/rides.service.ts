@@ -8,6 +8,9 @@ const apiKey = "AIzaSyD3vT6Sef7WGzsWTY_STmtVEtHyUDfEOxE";
 import IRides from "../interfaces/IRides";
 import axios from "axios";
 
+RidesModel.associate({ DriverModel });
+DriverModel.associate({ RidesModel });
+
 class RidesServices {
   private model: ModelStatic<RidesModel> = RidesModel;
   private driverModel: ModelStatic<DriverModel> = DriverModel;
@@ -109,6 +112,14 @@ class RidesServices {
     }
     const rides = await this.model.findAll({
       where: whereConditions,
+      include: [
+        {
+          model: DriverModel,
+          as: "driver",
+        },
+      ],
+      raw: false,
+      nest: true,
     });
 
     const ridesFiltred = await Promise.all(
@@ -121,6 +132,7 @@ class RidesServices {
         if (!driver) {
           return resp(404, "Usuario não encontrado");
         }
+        console.log(ride);
 
         return {
           id: ride.id,

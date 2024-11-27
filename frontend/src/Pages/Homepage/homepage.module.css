@@ -1,0 +1,10 @@
+.containerHomepage {
+  min-height: 60vh;
+  margin: 10vh 0;
+  background-color: var(--color-green-shopper);
+  background-image: url("/images/background.svg");
+  padding: 20px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}

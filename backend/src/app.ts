@@ -1,10 +1,12 @@
 require("dotenv").config();
+const cors = require("cors");
 
 import express, { NextFunction } from "express";
 import { Request, Response } from "express";
 const routes = require("./routes");
 
 const app = express();
+app.use(cors());
 routes(app);
 
 const PORT = 8080;

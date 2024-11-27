@@ -1,42 +1,57 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
-}
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  font-family: "Lato", sans-serif;
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
+  p {
+    font-size: 1rem;
   }
-  to {
-    transform: rotate(360deg);
+  h5 {
+    font-size: 1.15rem;
+  }
+  h3 {
+    font-size: 1.25rem;
+  }
+  h2 {
+    font-size: 2.5rem;
   }
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+a {
+  text-decoration: none;
+  color: gold;
 }
 
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
+:root {
+  --color-black: #000;
+  --color-black-100: #212121;
+  --color-d_gray: #4d4d4d;
+  --color-gray: #717171;
+  --color-l-gray-100: #89939e;
+  --color-b-gray: #abbed1;
+  --color-silver: #f5f7fa;
+  --color-white: #fff;
+  --color-green-shopper: #07a776;
+  --color-dark-blue: #060937;
+  --color-dark-blue-shopper: #1c1a37;
+  --color-programada: #007bff;
+  --color-fresh: #92c841;
+  --color-unica: #ffa800;
+  --color-header: #1e2044;
+  --color-error: #d01f31;
+  --color-info: #0288d1;
+  --color-success: #01bc6e;
+  --color-tertiary: #00b780;
+  --color-bg-form: #2da77a;
+  --color-bg-banner: #e8f3d8;
+  --color-nav-border: #f2f2f2;
+  --hover-brightness: 1.2;
+  --color-alert-error: #f44336;
+  --color-alert-success: #01bc6e;
+  --color-alert-warning: #f78022;
+  --color-alert-default: #15553d;
+  --color-close-btn: #ff0000;
 }

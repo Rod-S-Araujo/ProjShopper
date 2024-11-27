@@ -19,14 +19,10 @@ class RidesModel extends Model<
   declare customer_id: string;
   declare driver_id: number;
 
-  static associate() {
-    RidesModel.belongsTo(CustomerModel, {
-      foreignKey: "customer_id",
-      as: "customers",
-    });
-    RidesModel.belongsTo(DriverModel, {
+  static associate(models: { DriverModel: typeof DriverModel }) {
+    this.belongsTo(models.DriverModel, {
       foreignKey: "driver_id",
-      as: "drivers",
+      as: "driver",
     });
   }
 }
@@ -55,7 +51,7 @@ RidesModel.init(
     },
     value: {
       allowNull: false,
-      type: sequelize.NUMBER,
+      type: sequelize.FLOAT,
     },
     date: {
       allowNull: true,

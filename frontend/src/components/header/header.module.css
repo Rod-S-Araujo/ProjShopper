@@ -1,0 +1,18 @@
+.header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  background-color: var(--color-header);
+  padding: 20px 60px;
+  align-items: center;
+}
+
+.logoDrivver {
+  width: 150px;
+  height: auto;
+}
+
+.areaButtons {
+  display: flex;
+  gap: 20px;
+}

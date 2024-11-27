@@ -1,0 +1,14 @@
+.button {
+  all: unset;
+  background-color: transparent;
+  border: 1px solid;
+  border-color: var(--color-green-shopper);
+  border-radius: 5px;
+  padding: 10px;
+  color: white;
+  cursor: pointer;
+}
+
+.active {
+  background-color: var(--color-green-shopper);
+}
