@@ -1,0 +1,72 @@
+.containerHistory {
+  display: flex;
+  flex-wrap: wrap;
+  min-height: 60vh;
+  width: 100vw;
+  margin: 10vh 0;
+  padding: 25px;
+  background-color: var(--color-dark-blue-shopper);
+  background-image: url("/images/background.svg");
+  display: flex;
+  align-items: start;
+  color: white;
+  justify-content: space-around;
+  gap: 20px;
+}
+.titleHistory {
+  flex: 1 1 100%;
+}
+
+.driversHistory {
+  flex: 1 1 25%;
+  height: 100%;
+  box-sizing: border-box;
+  text-align: start;
+}
+
+.cardDriver {
+  list-style: none;
+  display: flex;
+  border: solid 1px;
+  border-color: var(--color-green-shopper);
+  padding: 10px;
+  align-items: center;
+  cursor: pointer;
+  justify-content: space-between;
+  position: relative;
+}
+.cardDriver:first-child {
+  border-radius: 10px 10px 0 0;
+}
+.cardDriver:last-child {
+  border-radius: 0 0 10px 10px;
+}
+.active {
+  background-color: var(--color-green-shopper);
+}
+
+.ridesHistory {
+  flex: 1 1 60%;
+}
+.containerRide {
+  display: flex;
+  flex-wrap: wrap;
+}
+.dateContainer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.cardRide {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  border: solid 2px;
+  border-color: var(--color-green-shopper);
+  background-color: rgba(255, 255, 255, 0.2);
+  padding: 30px 15px;
+  justify-content: space-between;
+  position: relative;
+  width: 40%;
+  gap: 20px;
+}

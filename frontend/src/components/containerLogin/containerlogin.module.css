@@ -14,3 +14,21 @@
   flex-direction: column;
   gap: 25px;
 }
+
+.inputStyles {
+  all: unset;
+  border: 3px solid;
+  border-radius: 15px;
+  border-color: var(--color-green-shopper);
+  background-color: white;
+  padding: 5px 10px;
+  color: black;
+}
+
+.areaButtons {
+  display: flex;
+  gap: 20px;
+  justify-content: space-between;
+
+  margin-bottom: 20px;
+}

@@ -24,8 +24,8 @@ class CustomerService {
 
     if (!customer) return resp(404, "User not found");
 
-    const { id, email } = customer;
-    const token = sign({ id, email });
+    const { id, email, name } = customer;
+    const token = sign({ id, email, name });
     return resp(200, token);
   }
 

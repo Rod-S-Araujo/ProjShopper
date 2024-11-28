@@ -1,9 +1,10 @@
-import { GoogleMap, Marker } from "@react-google-maps/api";
+import { GoogleMap, Marker, Polyline } from "@react-google-maps/api";
 import React from "react";
 import { useGoogleMaps } from "../../providers/GoogleApiProvider";
 
 interface Map {
   center?: google.maps.LatLngLiteral;
+  path?: google.maps.LatLngLiteral[];
 }
 
 const containerStyle: React.CSSProperties = {
@@ -11,19 +12,18 @@ const containerStyle: React.CSSProperties = {
   height: "400px",
 };
 
-const defaultCenter = {
-  lat: -23.4209995,
-  lng: -51.9330558,
-};
-
-const Map: React.FC<Map> = ({ center }) => {
+const Map: React.FC<Map> = ({
+  center = { lat: -25.4268985, lng: -49.2651984 },
+  path = [],
+}) => {
   const { isLoaded } = useGoogleMaps();
 
   if (!isLoaded) return <div>Carregando...</div>;
 
   return (
     <GoogleMap mapContainerStyle={containerStyle} center={center} zoom={12}>
-      <Marker position={center ? center : defaultCenter} />
+      <Marker position={center} />
+      {path ? <Polyline path={path} /> : null}
     </GoogleMap>
   );
 };

@@ -6,6 +6,7 @@ import Footer from "./components/footer";
 import Dashboard from "./Pages/Dashboard";
 import Estimate from "./Pages/Estimate";
 import Confirm from "./Pages/Confirm";
+import History from "./Pages/History";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route path="/dashboard" Component={Dashboard} />
         <Route path="/estimate" Component={Estimate} />
         <Route path="/confirm" Component={Confirm} />
+        <Route path="/history" Component={History} />
       </Routes>
       <Footer />
     </>

@@ -1,19 +1,28 @@
 import styles from "./estimate.module.css";
 import Map from "../../components/map";
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Autocomplete } from "@react-google-maps/api";
 import { useGoogleMaps } from "../../providers/GoogleApiProvider";
 import InputSubmitStyled from "../../components/inputSubmitStyled";
 import { rideEstimate } from "../../api/services/ridesServices";
 import { useNavigate } from "react-router-dom";
+import IUser from "../../interfaces/IUser";
 
 const Estimate = () => {
   const navigate = useNavigate();
+  const [customer, setCustomer] = useState<IUser>();
   const [origin, setOrigin] = useState("");
   const [destination, setDestination] = useState("");
   const originAutoCompleteRef = useRef<google.maps.places.Autocomplete | null>(
     null
   );
+  useEffect(() => {
+    const customerLogin = localStorage.getItem("authToken");
+    if (customerLogin) {
+      setCustomer(JSON.parse(customerLogin));
+    }
+  }, []);
+
   const destinationAutoCompleteRef =
     useRef<google.maps.places.Autocomplete | null>(null);
 
@@ -59,10 +68,12 @@ const Estimate = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    const customerId = "1";
+    if (!customer || !customer.id) {
+      return;
+    }
 
     const requestData = {
-      customer_id: customerId,
+      customer_id: customer.id,
       origin,
       destination,
     };

@@ -5,14 +5,10 @@
   background-color: var(--color-header);
   padding: 20px 60px;
   align-items: center;
+  color: white;
 }
 
 .logoDrivver {
   width: 150px;
   height: auto;
-}
-
-.areaButtons {
-  display: flex;
-  gap: 20px;
 }

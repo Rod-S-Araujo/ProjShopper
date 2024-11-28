@@ -51,13 +51,15 @@ class RidesServices {
       },
     });
 
-    const opitions = await drivers.map((driver) => ({
+    const options = await drivers.map((driver) => ({
       id: driver.id,
       name: driver.name,
       description: driver.description,
       vehicle: driver.vehicle,
-      rating: driver.rating,
-      comment: driver.comment,
+      review: {
+        rating: driver.rating,
+        comment: driver.comment,
+      },
       duration,
       distance,
       value: (distance / 1000) * driver.rate_per_km,
@@ -74,7 +76,7 @@ class RidesServices {
       },
       distance,
       duration,
-      opitions,
+      options,
       routeData,
     });
   }
@@ -151,7 +153,7 @@ class RidesServices {
     );
     return resp(200, {
       customer_id,
-      ridesFiltred,
+      rides: ridesFiltred,
     });
   }
 }
