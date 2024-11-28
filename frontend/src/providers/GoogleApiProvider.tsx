@@ -1,8 +1,16 @@
 import React, { createContext, useContext } from "react";
 import { useLoadScript } from "@react-google-maps/api";
 
-const Dotenv = require("dotenv-webpack");
-const apiKey = process;
+import fs from "fs";
+import dotenv from "dotenv";
+
+const envConfig = dotenv.parse(fs.readFileSync(".env"));
+
+const reactEnv = Object.entries(envConfig)
+  .map(([key, value]) => `VITE_${key}=${value}`)
+  .join("\n");
+
+fs.writeFileSync("./.env.local", reactEnv);
 
 interface GoogleMaps {
   isLoaded: boolean;
@@ -14,7 +22,7 @@ const GoogleMapsProvider: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
   const { isLoaded } = useLoadScript({
-    googleMapsApiKey: apiKey,
+    googleMapsApiKey: import.meta.env.VITE_GOOGLE_API_KEY,
     libraries: ["places"],
   });
 
