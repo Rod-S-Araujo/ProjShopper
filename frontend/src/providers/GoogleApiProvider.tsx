@@ -1,17 +1,6 @@
 import React, { createContext, useContext } from "react";
 import { useLoadScript } from "@react-google-maps/api";
 
-import fs from "fs";
-import dotenv from "dotenv";
-
-const envConfig = dotenv.parse(fs.readFileSync(".env"));
-
-const reactEnv = Object.entries(envConfig)
-  .map(([key, value]) => `VITE_${key}=${value}`)
-  .join("\n");
-
-fs.writeFileSync("./.env.local", reactEnv);
-
 interface GoogleMaps {
   isLoaded: boolean;
 }
