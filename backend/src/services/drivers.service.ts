@@ -7,7 +7,7 @@ class DriverService {
   private model: ModelStatic<DriverModel> = DriverModel;
 
   async get(id: number) {
-    const drivers = await this.model.findByPk(id);
+    const drivers = await this.model.findOne({ where: { id: id } });
     return resp(200, drivers);
   }
 

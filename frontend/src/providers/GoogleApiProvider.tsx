@@ -1,7 +1,8 @@
 import React, { createContext, useContext } from "react";
 import { useLoadScript } from "@react-google-maps/api";
 
-const apiKey = "AIzaSyD3vT6Sef7WGzsWTY_STmtVEtHyUDfEOxE";
+const Dotenv = require("dotenv-webpack");
+const apiKey = process;
 
 interface GoogleMaps {
   isLoaded: boolean;

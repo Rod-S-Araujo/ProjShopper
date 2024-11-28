@@ -4,9 +4,14 @@ import DriverModel from "../models/DriverModel";
 
 const resp = require("../utils/resp");
 
-const apiKey = "AIzaSyD3vT6Sef7WGzsWTY_STmtVEtHyUDfEOxE";
+import * as dotenv from "dotenv";
+
+dotenv.config();
+const apiKey = process.env.GOOGLE_API_KEY;
+
 import IRides from "../interfaces/IRides";
 import axios from "axios";
+import { errorResponse } from "../utils/errorResoinse";
 
 RidesModel.associate({ DriverModel });
 DriverModel.associate({ RidesModel });
@@ -15,7 +20,21 @@ class RidesServices {
   private model: ModelStatic<RidesModel> = RidesModel;
   private driverModel: ModelStatic<DriverModel> = DriverModel;
 
-  async estimate(body: { origin: string; destination: string }) {
+  async estimate(body: {
+    customer_id: string;
+    origin: string;
+    destination: string;
+  }) {
+    if (!body.customer_id)
+      throw errorResponse("INVALID_DATA", "User ID cannot be null.");
+    if (!body.origin) throw errorResponse("INVALID_DATA", "Origin is required");
+    if (!body.destination)
+      throw errorResponse("INVALID_DATA", "Destination is required");
+    if (body.destination === body.origin)
+      throw errorResponse(
+        "INVALID_DATA",
+        "Origin and Destination cannot be the same."
+      );
     const originGeocode = await axios.get(
       "https://maps.googleapis.com/maps/api/geocode/json",
       { params: { address: body.origin, key: apiKey } }

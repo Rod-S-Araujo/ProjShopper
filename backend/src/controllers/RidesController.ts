@@ -14,8 +14,6 @@ class RidesController {
       res.status(status).json(message);
     } catch (error) {
       next(error);
-
-      res.status(400).json();
     }
   }
   async confirm(req: Request, res: Response, next: NextFunction) {

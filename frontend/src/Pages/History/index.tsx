@@ -29,10 +29,11 @@ const History = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
+        if (!customer || !customer.id) return;
         const driversData = await getDrivers();
         const ridesData = driverSelected
-          ? await getRides("1", driverSelected)
-          : await getRides("1");
+          ? await getRides(customer?.id, driverSelected)
+          : await getRides(customer?.id);
         setDrivers(driversData);
         setRides(ridesData.rides);
         setLoading(false);
@@ -43,13 +44,13 @@ const History = () => {
     };
 
     fetchData();
-  }, [driverSelected]);
+  }, [driverSelected, customer]);
 
   console.log(drivers, rides);
   return (
     <section className={styles.containerHistory}>
       <h2 className={styles.titleHistory}>
-        Vou listtar as corridas que você já realizou na nossa plataforma:
+        Vou listar as corridas que você já realizou na nossa plataforma:
       </h2>
       <div className={styles.driversHistory}>
         <h3>Deseja saber as corridas sobre algum motorista em especifico?</h3>
